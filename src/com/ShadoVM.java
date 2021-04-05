@@ -8,18 +8,20 @@ import java.util.*;
 
 public class ShadoVM {
 
-	public static final ShadoVM singleton = new ShadoVM();
-
 	private ShadoObject[] objects;
 	private int totalObjects;
 	private List<Command> commands;
 	private List<CommandPrefix> prefixes;
 
-	private ShadoVM() {
-		objects = new ShadoObject[10];
+	public ShadoVM(int capacity) {
+		objects = new ShadoObject[capacity];
 		totalObjects = 0;
 		commands = new ArrayList<>();
 		prefixes = new ArrayList<>();
+	}
+
+	public ShadoVM() {
+		this(10);
 	}
 
 	public void reset() {

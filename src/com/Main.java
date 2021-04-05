@@ -7,12 +7,13 @@ import java.util.*;
 
 public class Main {
 
+	private static ShadoVM vm = new ShadoVM();
+
 	public static void main(String[] args) throws Exception {
 		// write your code here
 
 		Scanner scanner = new Scanner(System.in);
 		setupCommands();
-		var vm = ShadoVM.singleton;
 
 		boolean exit = false;
 		while (true) {
@@ -52,15 +53,16 @@ public class Main {
 	}
 
 	public static void setupCommands() {
-		new Exit(ShadoVM.singleton);
-		new Mem(ShadoVM.singleton);
-		new Reset(ShadoVM.singleton);
-		new Create(ShadoVM.singleton);
-		new GC(ShadoVM.singleton);
-		new Help(ShadoVM.singleton);
-		new Load(ShadoVM.singleton);
+		new Exit(vm);
+		new Mem(vm);
+		new Reset(vm);
+		new Create(vm);
+		new GC(vm);
+		new Help(vm);
+		new Load(vm);
 
-		new DelayPrefix(ShadoVM.singleton);
-		new RepeatPrefix(ShadoVM.singleton);
+		new DelayPrefix(vm);
+		new RepeatPrefix(vm);
+		new AfterPrefix(vm);
 	}
 }

@@ -2,3 +2,4 @@
 !create --refs=10
 
 DELAY 3000 !create --ref=3
+REPEAT 10 !mem
